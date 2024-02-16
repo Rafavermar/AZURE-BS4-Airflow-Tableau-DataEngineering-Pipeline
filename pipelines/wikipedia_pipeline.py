@@ -1,5 +1,7 @@
 import json
 
+from geopy import Nominatim
+
 NO_IMAGE = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/No-image-available.png/480px-No-image-available.png'
 
 
@@ -69,6 +71,15 @@ def extract_wikipedia_data(**kwargs):
     return "OK"
 
 
+def get_lat_long(country, city):
+    geolocator = Nominatim(user_agent='geoapiExercises')
+    location = geolocator.geocode(f'{city}, {country}')
+
+    if location:
+        return location.latitude, location.longitude
+    return None
+
+
 # Transform layer
 
 def transform_wikipedia_data(**kwargs):
@@ -78,5 +89,15 @@ def transform_wikipedia_data(**kwargs):
     data = json.loads(data)
 
     stadiums_df = pd.DataFrame(data)
-
+    stadiums_df['location'] = stadiums_df.apply(lambda x: get_lat_long(x['country'], x['stadium']), axis=1)
     stadiums_df['images'] = stadiums_df['images'].apply(lambda x: x if x not in ['NO IMAGE', '', None] else NO_IMAGE)
+
+    # Handle the duplicates
+    duplicates = stadiums_df[stadiums_df.duplicated(['location'])]
+    duplicates['location'] = duplicates.apply(lambda x: get_lat_long(x['country'], x['city']), axis=1)
+    stadiums_df.update(duplicates)
+
+    # push to xcom
+    kwargs['ti'].xcom_push(key='rows', value=stadiums_df.to_json())
+
+    return "OK"
