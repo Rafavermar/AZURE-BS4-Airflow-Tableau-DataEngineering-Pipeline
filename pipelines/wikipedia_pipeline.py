@@ -72,7 +72,7 @@ def extract_wikipedia_data(**kwargs):
 
 
 def get_lat_long(country, city):
-    geolocator = Nominatim(user_agent='GeoRVMAPI')
+    geolocator = Nominatim(user_agent='Geo2RVM')
     location = geolocator.geocode(f'{city}, {country}')
 
     if location:
@@ -112,5 +112,9 @@ def write_wikipedia_data(**kwargs):
     data = pd.DataFrame(data)
 
     file_name = ('stadium_cleaned' + str(datetime.now().date()) + "_" + str(datetime.now().time()).replace(":",
-                                                                                                           ",") + '.csv')
-    data.to_csv('data/' + file_name, index=False)
+                                                                                                           "_") + '.csv')
+
+    data.to_csv('abfs://rvmfootballdataeng@rvmfootballdataengsa.dfs.core.windows.net/data/' + file_name,
+                storage_options={
+                    'account_key': '{{account_key}}'
+                }, index=False)
