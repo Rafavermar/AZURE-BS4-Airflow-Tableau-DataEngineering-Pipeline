@@ -61,7 +61,7 @@ The project's workflow is outlined as follows:
 By following these steps, you will be able to successfully execute the Football Data Engineering project, leveraging powerful tools such as Python, Docker, Apache Airflow, and Azure to manage and analyze sports data efficiently.
 
 ### Visualization in Tableau
-![dashboard_static.png](assets%2Fdahsboard_static.png)
+![dashboard_static.png](assets%2Fdashboard_static.png)
 
 [Dashboard in Tableau Public](https://public.tableau.com/app/profile/rafael.vera.maranon/viz/shared/KJFNK5SK7)
 
