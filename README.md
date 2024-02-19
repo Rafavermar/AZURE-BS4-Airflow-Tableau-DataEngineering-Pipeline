@@ -62,6 +62,7 @@ By following these steps, you will be able to successfully execute the Football 
 
 ### Visualization in Tableau
 ![dashboard_static.png](assets%2Fdahsboard_static.png)
+
 [Dashboard in Tableau Public](https://public.tableau.com/app/profile/rafael.vera.maranon/viz/shared/KJFNK5SK7)
 
 
