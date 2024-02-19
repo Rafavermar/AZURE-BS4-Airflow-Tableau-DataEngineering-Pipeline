@@ -1,6 +1,6 @@
 # Football Data Engineering
 
-This repository hosts the Football Data Engineering project, a Python-based initiative that automates the extraction of stadium capacity data from Wikipedia, employs Apache Airflow for data orchestration, cleanses the extracted data, and finally pushes it to Azure Data Lake for further processing and analysis. 
+This repository hosts the Football Data Engineering project, a Python-based initiative that automates the extraction of stadium capacity data from Wikipedia, employs Apache Airflow for data orchestration, cleanses the extracted data, and finally pushes it to Azure Data Lake for further processing and analysis with Azure Synapse and Tableau.
 
 ## Table of Contents
 
