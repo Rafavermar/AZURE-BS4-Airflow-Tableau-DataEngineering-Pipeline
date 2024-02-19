@@ -28,21 +28,23 @@ To run this project, you will need:
 
 1. **Clone the repository** to your local machine:
 
-git clone https://github.com/Rafavermar/FootballRVMDataEngineering.git
+    git clone https://github.com/Rafavermar/FootballRVMDataEngineering.git
+
 
 
 2. **Install Python dependencies** needed for the project:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
+
 
 
 ### Running the Code With Docker
 
-To facilitate easy setup and scalability, the project is containerized with Docker. 
+  To facilitate easy setup and scalability, the project is containerized with Docker. 
 
-- **Start your services on Docker** by running:
+  - **Start your services on Docker** by running:
 
-docker compose up -d
+    docker compose up -d
 
 
 - **Trigger the DAG** on the Airflow UI to begin the data processing workflow.
